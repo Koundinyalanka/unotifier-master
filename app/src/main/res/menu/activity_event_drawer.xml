@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/add_event"
+            android:icon="@drawable/ic_action_addevent"
+            android:title="Add Event" />
+        <item
+            android:id="@+id/get_events"
+            android:icon="@drawable/ic_action_getevents"
+            android:title="Get Events" />
+        <item
+            android:id="@+id/profile"
+            android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="Profile" />
+    </group>
+
+
+
+</menu>

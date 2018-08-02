@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.remainder.events.unotifier">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="com.remainder.events.unotifier.CustomApplicationClass"
+        android:allowBackup="true"
+        android:icon="@drawable/icon_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/icon_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="com.remainder.events.unotifier.LoginActivity"></activity>
+        <activity
+            android:name="com.remainder.events.unotifier.EventActivity"
+            android:label="@string/title_activity_event"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity android:name="com.remainder.events.unotifier.EventStats" />
+        <activity
+            android:name="com.remainder.events.unotifier.SplashActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="w4dg.app.link"
+                    android:scheme="https" />
+                <data
+                    android:host="w4dg-alternate.app.link"
+                    android:scheme="https" />
+                <data
+                    android:host="w4dg.test-app.link"
+                    android:scheme="https" />
+                <data
+                    android:host="w4dg-alternate.test-app.link"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <!-- Branch init -->
+        <meta-data
+            android:name="io.branch.sdk.BranchKey"
+            android:value="key_live_amu3tvkE5NDmC2Z2inHbllapvygymQlS" />
+        <meta-data
+            android:name="io.branch.sdk.BranchKey.test"
+            android:value="key_test_akD1DBjEWRxmF416acPbajenxtcAgOfq" />
+
+        <!-- Branch testing (TestMode "true" to simulate fresh installs on dev environment) -->
+        <meta-data
+            android:name="io.branch.sdk.TestMode"
+            android:value="false" />
+        <meta-data
+            android:name="io.branch.sdk.BranchKey"
+            android:value="key_live_amu3tvkE5NDmC2Z2inHbllapvygymQlS" />
+        <meta-data
+            android:name="io.branch.sdk.TestMode"
+            android:value="false" />
+        <!-- Branch install referrer tracking -->
+        <receiver
+            android:name="io.branch.referral.InstallListener"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name="com.remainder.events.unotifier.BatchEventActivity"></activity>
+    </application>
+
+</manifest>
